@@ -1,70 +1,131 @@
-# Getting Started with Create React App
+# Cinema Time 🎥
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Cinema Time is a responsive web application that allows users to search for movies using The Movie Database (TMDb) API. The application is built using **React** and includes features like caching, sorting, pagination, and cast display for a seamless user experience.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## Features 🚀
 
-### `npm start`
+### 🔍 **Movie Search**
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Type at least **3 characters** in the search bar to start searching for movies.
+- The search is case-insensitive and provides real-time results from the TMDb API.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 📄 **Movie Details**
 
-### `npm test`
+- View key information about a movie, including:
+  - Title
+  - Overview
+  - Average Rating
+  - Poster Image
+- Option to display the **cast** of the movie with up to 5 actors shown initially. A tooltip displays additional cast members.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 📊 **Sorting by Rating**
 
-### `npm run build`
+- Users can **sort movies by their rating** (highest to lowest) with a single click.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🔄 **Pagination**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Navigate through movie results using **Previous** and **Next** buttons.
+- Displays the current page and total pages available.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ⚡ **Caching**
 
-### `npm run eject`
+- Results are **cached** to reduce redundant API calls, improving performance and reducing latency.
+- Cache is keyed based on the search query and the page number.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### ⏳ **Loading State**
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- A **loading spinner** (via `react-spinners`) is displayed while fetching data from the API to enhance user feedback.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### 🎨 **Responsive Design**
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Fully responsive layout for an optimal experience on desktop, tablet, and mobile devices.
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Installation
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/cinema-time.git
+   cd cinema-time
+   ```
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+3. Start the development server:
+   ```bash
+   npm start
+   ```
+4. Open the app in your browser at `http://localhost:3000`.
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Folder Structure 📂
 
-### Analyzing the Bundle Size
+```plaintext
+src/
+├── components/
+│   ├── Header.js          # Header component with search bar
+│   ├── Pagination.js      # Pagination controls
+│   └── MovieDetails.js    # Movie details and cast
+├── pages/
+│   └── MovieList.js       # Main movie list page
+├── restClient.js          # Axios instance for API calls
+├── constants.js           # API constants
+└── App.js                 # Main application entry point
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Components 🧩
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### `Header`
 
-### Advanced Configuration
+- Displays the search bar and movie count.
+- Updates the query state on input change.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### `MovieDetails`
 
-### Deployment
+- Renders details for a single movie.
+- Fetches and displays the movie cast on button click.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### `Pagination`
 
-### `npm run build` fails to minify
+- Controls for navigating between pages.
+- Disables buttons when on the first or last page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## API Integration 🌐
+
+The app integrates with TMDb API using `Axios`. The following endpoints are used:
+
+- **Search Movies**: `/search/movie`
+- **Movie Credits**: `/movie/{movie_id}/credits`
+
+All API requests include necessary parameters like `query`, `page`, and language settings.
+
+---
+
+## Customization 🎨
+
+### Styling
+
+- Uses Tailwind CSS for a modern and responsive design.
+- You can customize the theme or styles in the `tailwind.config.js` file.
+
+---
+
+### Future Enhancements
+
+- Add filters for genres, release year, etc.
+- Implement infinite scrolling.
+- Allow users to favorite or bookmark movies.
+- Add a detailed movie page.
+
+---
+
+Happy Movie Searching! 🍿
