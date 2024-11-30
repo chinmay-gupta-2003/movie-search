@@ -48,7 +48,7 @@ Cinema Time is a responsive web application that allows users to search for movi
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/cinema-time.git
+   https://github.com/chinmay-gupta-2003/movie-search.git
    cd cinema-time
    ```
 2. Install dependencies:
